@@ -1,11 +1,14 @@
 package com.faterap.mydemo.dagger2.module
 
+import android.app.Application
+import android.content.Context
+import dagger.Binds
 import dagger.Module
 
 /*
  * Copyright (C) 2019, TP-LINK TECHNOLOGIES CO., LTD.
  *
- * com.faterap.mydemo.dagger2
+ * com.faterap.mydemo.dagger2.module
  *
  * Description.
  *
@@ -15,6 +18,9 @@ import dagger.Module
  */
 
 @Module
-class ActivityModule {
+abstract class AppModule {
+
+    @Binds
+    abstract fun bindsContext(application: Application): Context
 
 }

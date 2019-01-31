@@ -3,7 +3,7 @@ package com.faterap.mydemo
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.faterap.mydemo.dagger2.TestActivity
+import com.faterap.mydemo.dagger2.test.TestActivity
 
 class MainActivity : AppCompatActivity() {
 

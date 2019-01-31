@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".dagger2.test.TestActivity">
+        </activity>
+
     </application>
 
 </manifest>
