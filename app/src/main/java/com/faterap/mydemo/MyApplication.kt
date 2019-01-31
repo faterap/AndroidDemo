@@ -1,8 +1,13 @@
 package com.faterap.mydemo
 
+import android.app.Activity
+import android.app.Application
 import android.util.Log
+import com.faterap.mydemo.dagger2.component.DaggerAppComponent
 import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
 /*
  * Copyright (C) 2019, TP-LINK TECHNOLOGIES CO., LTD.
@@ -18,14 +23,18 @@ import dagger.android.DaggerApplication
 
 private const val TAG = "MyApplication"
 
-class MyApplication : DaggerApplication() {
+class MyApplication : Application(), HasActivityInjector {
+
+    @Inject
+    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+
+    override fun activityInjector(): AndroidInjector<Activity> {
+        return activityInjector
+    }
 
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "onCreate MyApplication")
-    }
-
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerApplicationComponent.builder().application(this).build()
+        DaggerAppComponent.builder().application(this).build().inject(this)
     }
 }

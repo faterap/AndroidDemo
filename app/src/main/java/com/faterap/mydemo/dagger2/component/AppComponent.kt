@@ -5,7 +5,7 @@ import com.faterap.mydemo.MyApplication
 import com.faterap.mydemo.dagger2.module.ApplicationModule
 import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjector
+import dagger.android.AndroidInjectionModule
 
 /*
  * Copyright (C) 2019, TP-LINK TECHNOLOGIES CO., LTD.
@@ -19,8 +19,8 @@ import dagger.android.AndroidInjector
  * Ver 1.0, 01/31/2019, tanminghui, Create file
  */
 
-@Component(modules = [ApplicationModule::class])
-interface AppComponent : AndroidInjector<MyApplication> {
+@Component(modules = [AndroidInjectionModule::class, ApplicationModule::class])
+interface AppComponent {
 
     @Component.Builder
     interface Builder {
@@ -29,4 +29,6 @@ interface AppComponent : AndroidInjector<MyApplication> {
 
         fun build(): AppComponent
     }
+
+    fun inject(application: MyApplication)
 }
