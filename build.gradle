@@ -8,9 +8,9 @@ buildscript {
         maven {
             url 'http://source.tp-link.net:8081/nexus/content/groups/public/'
         }
-        google()
+//        google()
         jcenter()
-        
+        mavenCentral()   // This repo should have the gradle plugin
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0'
@@ -25,9 +25,9 @@ allprojects {
         maven {
             url 'http://source.tp-link.net:8081/nexus/content/groups/public/'
         }
-        google()
+//        google()
         jcenter()
-        
+        mavenCentral()   // This repo should have the gradle plugin
     }
 }
 
