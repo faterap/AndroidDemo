@@ -78,6 +78,7 @@ class CoroutineActivity : AppCompatActivity(), CoroutineScope {
         }
     }
 
+
     fun startRequestSequentially() {
         requestDataSequentially()
     }

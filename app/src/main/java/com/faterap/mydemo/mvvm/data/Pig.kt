@@ -1,0 +1,31 @@
+package com.faterap.mydemo.mvvm.data
+
+/*
+ * Copyright (C) 2019, TP-LINK TECHNOLOGIES CO., LTD.
+ *
+ * com.faterap.mydemo.mvvm.data
+ *
+ * Description.
+ *
+ * Author tanminghui
+ *
+ * Ver 1.0, 04/26/2019, tanminghui, Create file
+ */
+data class Pig(
+    val name: String,
+    val color: String = "pink",
+    val weight: Int = 50,
+    val withGlasses: Boolean = true,
+    val hoursForSleep: Int = 12
+) {
+    companion object {
+        fun createTestData(): List<Pig> {
+            return ArrayList<Pig>().apply {
+                add(Pig("zhuzhu"))
+                add(Pig("juju"))
+                add(Pig("chouzhu"))
+                add(Pig("chouju"))
+            }
+        }
+    }
+}
