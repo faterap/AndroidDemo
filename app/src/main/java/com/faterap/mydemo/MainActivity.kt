@@ -2,7 +2,6 @@ package com.faterap.mydemo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.faterap.mydemo.kotlin.coroutine.Coroutine
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,9 +14,10 @@ class MainActivity : AppCompatActivity() {
 //        startActivity(intent)
 
         // test Lambda
-//        Lambda.testReference()
-
+//        Lambda.testReference
         // test coroutine
-        Coroutine.main()
+//        Coroutine.main()
+
+        KotlinTest().main()
     }
 }
