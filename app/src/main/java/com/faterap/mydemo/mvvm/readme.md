@@ -3,3 +3,4 @@ Library/architecture used:
 - Lifecycles
 - ViewModel
 - MVVM
+- databinding

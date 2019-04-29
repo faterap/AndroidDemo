@@ -4,8 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.faterap.mydemo.R
+import com.faterap.mydemo.databinding.PigItemViewBinding
 import com.faterap.mydemo.mvvm.data.Pig
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.pig_item_view.*
@@ -30,6 +32,13 @@ class PigAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerVi
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val itemBinding = DataBindingUtil.inflate<PigItemViewBinding>(
+            LayoutInflater.from(context),
+            R.layout.pig_item_view,
+            null,
+            false
+        )
+
         val root = LayoutInflater.from(context).inflate(R.layout.pig_item_view, null)
         return PigViewHolder(root)
 
