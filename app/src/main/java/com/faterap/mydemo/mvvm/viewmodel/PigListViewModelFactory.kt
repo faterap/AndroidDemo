@@ -18,8 +18,7 @@ import com.faterap.mydemo.mvvm.data.PigRepository
 
 class PigListViewModelFactory(private val pigRepository: PigRepository) : ViewModelProvider.NewInstanceFactory() {
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return PigListViewModelFactory(pigRepository) as T
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return PigListViewModel() as T
     }
-
 }

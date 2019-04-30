@@ -1,13 +1,12 @@
 package com.faterap.mydemo.mvvm
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faterap.mydemo.R
 import com.faterap.mydemo.mvvm.adapter.PigAdapter
-import com.faterap.mydemo.mvvm.data.Pig
 import com.faterap.mydemo.mvvm.utils.FactoryInjections
 import com.faterap.mydemo.mvvm.viewmodel.PigListViewModel
 import kotlinx.android.synthetic.main.activity_mvvm.*
@@ -28,23 +27,22 @@ const val TAG = "MVVMActivity"
 
 class MVVMActivity : AppCompatActivity() {
 
-    private val adapter = PigAdapter(this)
-    lateinit var viewModel: PigListViewModel
+    private val pigAdapter = PigAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mvvm)
 
         // set list adapter
-        rv_list.layoutManager = LinearLayoutManager(this)
-        rv_list.adapter = adapter
+        rv_list.apply {
+            layoutManager = LinearLayoutManager(this@MVVMActivity)
+            addItemDecoration(DividerItemDecoration(this@MVVMActivity, DividerItemDecoration.VERTICAL))
+            adapter = pigAdapter
+        }
 
-        viewModel = FactoryInjections.providePigListViewModelFactory().create(PigListViewModel::class.java)
-        viewModel.data.value = Pig.createTestData()
-        viewModel.data.observe(this, Observer<List<Pig>> {
-            Log.i(TAG, "pig view model receive onChange")
-            // update UI when data changed
-            adapter.data = it
+        val viewModel = FactoryInjections.providePigListViewModelFactory().create(PigListViewModel::class.java)
+        viewModel.data.observe(this, Observer {
+            pigAdapter.data = it
         })
     }
 }
