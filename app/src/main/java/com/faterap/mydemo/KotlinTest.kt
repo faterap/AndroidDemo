@@ -1,6 +1,8 @@
 package com.faterap.mydemo
 
 import android.graphics.Point
+import androidx.recyclerview.widget.RecyclerView
+import com.faterap.mydemo.mvvm.adapter.BindingAdapterBase
 import kotlin.properties.Delegates
 
 /*
@@ -47,17 +49,17 @@ class KotlinTest {
 
 
     fun main() {
-        val father = ArrayList<Father>()
-        val son = ArrayList<Son>()
 
-
-        father.addAll(son)
-        father.add(Son())
     }
 
-    open class Father()
+    abstract class Father<T : RecyclerView.ViewHolder>() {
+        abstract fun getViewHolder(): T
+    }
 
-    class Son() : Father() {
+    class Son : Father<BindingAdapterBase.ItemViewHolder>() {
+        override fun getViewHolder(): BindingAdapterBase.ItemViewHolder {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
 
     }
 

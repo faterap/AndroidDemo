@@ -4,7 +4,7 @@
     <data>
 
         <variable
-                name="pig"
+                name="item"
                 type="com.faterap.mydemo.mvvm.data.Pig"/>
     </data>
 
@@ -15,19 +15,19 @@
 
         <TextView
                 android:id="@+id/tv_name"
-                android:text="@{pig.name}"
+                android:text="@{item.name}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         <TextView
                 android:id="@+id/tv_color"
-                android:text="@{pig.color}"
+                android:text="@{item.color}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         <TextView
                 android:id="@+id/tv_weight"
-                android:text="@{Integer.toString(pig.weight)}"
+                android:text="@{Integer.toString(item.weight)}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
     </LinearLayout>

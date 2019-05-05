@@ -1,5 +1,7 @@
 package com.faterap.mydemo.mvvm.data
 
+import com.faterap.mydemo.R
+
 /*
  * Copyright (C) 2019, TP-LINK TECHNOLOGIES CO., LTD.
  *
@@ -17,7 +19,12 @@ data class Pig(
     val weight: Int = 50,
     val withGlasses: Boolean = true,
     val hoursForSleep: Int = 12
-) {
+) : BaseItem() {
+
+    override fun layoutId(): Int {
+        return R.layout.pig_item_view
+    }
+
     companion object {
         fun createTestData(): List<Pig> {
             return ArrayList<Pig>().apply {

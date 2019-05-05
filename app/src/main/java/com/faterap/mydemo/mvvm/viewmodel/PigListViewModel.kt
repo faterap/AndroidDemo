@@ -1,6 +1,5 @@
 package com.faterap.mydemo.mvvm.viewmodel
 
-import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +20,6 @@ import com.faterap.mydemo.mvvm.data.PigRepository
 class PigListViewModel : ViewModel() {
     private val _data: MutableLiveData<List<Pig>> = PigRepository.getPigs()
 
-    @get:Bindable
     val data: LiveData<List<Pig>> = _data
 
     override fun onCleared() {
